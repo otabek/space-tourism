@@ -3,6 +3,7 @@ import Title from "components/Typography/Title";
 import Text from "components/Typography/Text";
 import { initialState, planetsReducer } from "state/reducer";
 import { useReducer } from "react";
+import { shimmer, toBase64 } from "utils/shimmer";
 
 const Destination = ({ planets }) => {
   const [state, dispatch] = useReducer(planetsReducer, initialState);
@@ -21,14 +22,23 @@ const Destination = ({ planets }) => {
             <Title className="font-bold text-white/25">01</Title>
             <Title>Pick your destination</Title>
           </div>
-          <div className="xl:mt-16 xl:flex 2xl:justify-center">
+          <div className="xl:mt-16 xl:flex xl:items-end xl:justify-center xl:gap-[10.9vw]">
             <div
-              className="relative mx-auto mt-8 h-[170px] w-[170px] md:mt-[60px] 
-                        md:h-[300px] md:w-[300px] xl:ml-0 xl:h-[445px] xl:w-[445px] 2xl:mr-[8vw] 2xl:mb-0"
+              className="relative mx-auto mt-8 h-[170px] w-[170px] min-w-[170px] md:h-[300px]
+                        md:w-[300px] md:min-w-[300px] xl:m-0 xl:h-[445px] xl:w-[445px] xl:min-w-[445px]"
             >
-              <Image src={state.img} alt={state.name} layout="fill" />
+              <Image
+                src={state.img}
+                alt={state.name}
+                layout="fill"
+                quality="100"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(445, 445)
+                )}`}
+              />
             </div>
-            <div className="md:px-[59px] xl:ml-[7.9vw] xl:w-[445px] xl:p-0 xl:text-left 2xl:ml-[8vw]">
+            <div className="md:px-[59px] xl:w-[445px] xl:p-0 xl:text-left">
               <ul className="mt-[26px] flex h-7 flex-row justify-center gap-[26px] text-grayBlue md:mt-[53px] md:h-[34px] xl:mt-0 xl:justify-start xl:gap-[35px]">
                 {planets.map((planet) => (
                   <li

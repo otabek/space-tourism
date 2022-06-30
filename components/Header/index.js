@@ -9,11 +9,7 @@ import useToggle from "../../hooks/useToggle";
 const Header = ({ navItems }) => {
   const router = useRouter();
 
-  const [navbarOpen, setNavbarOpen] = useToggle();
-
-  const handleToggle = () => {
-    setNavbarOpen((prev) => !prev);
-  };
+  const [navbarOpen, toggleNavbarOpen] = useToggle(false);
 
   return (
     <div
@@ -27,7 +23,7 @@ const Header = ({ navItems }) => {
       </Link>
       <button
         className="absolute right-6 top-2 z-50 md:hidden"
-        onClick={handleToggle}
+        onClick={() => toggleNavbarOpen()}
       >
         {navbarOpen ? <Close /> : <Hamburger />}
       </button>
@@ -40,7 +36,7 @@ const Header = ({ navItems }) => {
           <ul className="flex flex-col py-[min(30vh,10rem)] uppercase md:flex-row md:gap-9 md:py-0 lg:gap-12">
             {navItems?.map(({ num, name, route }) => (
               <Link href={route} key={num}>
-                <a>
+                <a onClick={() => toggleNavbarOpen()}>
                   <li
                     className={`mb-6 flex h-[31px] items-center border-white transition-all hover:border-white/50 
                               active:border-r-4 active:border-white md:mb-0 md:h-24 
@@ -62,7 +58,7 @@ const Header = ({ navItems }) => {
           </ul>
         </nav>
       </div>
-      <hr className="absolute left-[11.5vw] z-50 border-t border-white/25 xl:w-[32.85vw] 2xl:w-[36%] 3xl:w-[47%]" />
+      <hr className="absolute left-[11.5vw] z-50 border-t border-white/25 xl:w-[32.85vw] 2xl:w-[36%] 3xl:w-[42%]" />
     </div>
   );
 };
