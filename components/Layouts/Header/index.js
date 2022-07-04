@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import Hamburger from "../../assets/icons/hamburger";
-import Close from "../../assets/icons/close";
-import Logo from "../../assets/icons/logo";
-import useToggle from "../../hooks/useToggle";
+import Hamburger from "../../../assets/icons/hamburger";
+import Close from "../../../assets/icons/close";
+import Logo from "../../../assets/icons/logo";
+import useToggle from "../../../hooks/useToggle";
 
-const Header = ({ navItems }) => {
+const Header = () => {
+  const navItems = [
+    { num: "00", name: "Home", route: "/" },
+    { num: "01", name: "Destination", route: "/destination" },
+    { num: "02", name: "Crew", route: "/crew" },
+    { num: "03", name: "Technology", route: "/tech" },
+  ];
+
   const router = useRouter();
 
   const [navbarOpen, toggleNavbarOpen] = useToggle(false);

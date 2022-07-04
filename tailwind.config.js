@@ -9,6 +9,7 @@ module.exports = {
       black: "#0B0D17",
       grayBlue: "#D0D6F9",
       white: "#ffffff",
+      darkGray: "#383B4B",
     },
     fontSize: {
       xs: ["14px", { lineHeight: "17px", letterSpacing: "0.148em" }],

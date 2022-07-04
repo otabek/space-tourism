@@ -1,25 +1,26 @@
 import Image from "next/image";
-import Title from "components/Typography/Title";
-import Text from "components/Typography/Text";
-import { initialState, planetsReducer } from "state/reducer";
+import Title from "components/Common/Typography/Title";
+import Text from "components/Common/Typography/Text";
+import { initialState, planetsReducer } from "state/Planets/reducer";
 import { useReducer } from "react";
 import { shimmer, toBase64 } from "utils/shimmer";
+import NumberText from "components/Common/Typography/NumberText";
+import BackgroundImage from "components/Common/BackgroundImage";
 
 const Destination = ({ planets }) => {
   const [state, dispatch] = useReducer(planetsReducer, initialState);
 
   return (
     <section>
-      <div
-        className="absolute h-full w-full bg-[url('/images/Destination/background-destination-mobile.jpg')]
-                  bg-cover bg-center bg-no-repeat
-                  md:bg-[url('/images/Destination/background-destination-tablet.jpg')]
-                  lg:bg-[url('/images/Destination/background-destination-desktop.jpg')]
-      "
+      <BackgroundImage
+        mobile="bg-[url('/images/destination/background-destination-mobile.jpg')]"
+        tablet="md:bg-[url('/images/destination/background-destination-tablet.jpg')]"
+        desktop="lg:bg-[url('/images/destination/background-destination-desktop.jpg')]"
+        classNames="w-full h-full"
       >
         <div className="mt-[88px] pb-[58px] text-center md:mt-[136px] md:px-[38px] xl:mx-[calc(11.4%-38px)] xl:mt-[212px]">
           <div className="flex items-center justify-center gap-[18px] md:justify-start 2xl:ml-[8vw]">
-            <Title className="font-bold text-white/25">01</Title>
+            <NumberText>01</NumberText>
             <Title>Pick your destination</Title>
           </div>
           <div className="xl:mt-16 xl:flex xl:items-end xl:justify-center xl:gap-[10.9vw]">
@@ -58,7 +59,7 @@ const Destination = ({ planets }) => {
                 </h1>
                 <Text>{state.info}</Text>
               </div>
-              <hr className="my-8 mx-6 text-[#979797] md:mx-0 md:mt-[49px] md:mb-7 xl:mx-0" />
+              <hr className="my-8 mx-6 text-darkGray md:mx-0 md:mt-[49px] md:mb-7 xl:mx-0" />
               <div className="space-y-8 md:flex md:justify-evenly md:space-y-0 xl:justify-start xl:gap-[79px]">
                 <div className="space-y-3">
                   <Title size="sm" className="md:text-xs" color="grayBlue">
@@ -76,7 +77,7 @@ const Destination = ({ planets }) => {
             </div>
           </div>
         </div>
-      </div>
+      </BackgroundImage>
     </section>
   );
 };
