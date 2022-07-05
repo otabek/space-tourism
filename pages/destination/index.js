@@ -16,7 +16,7 @@ const Destination = ({ planets }) => {
         mobile="bg-[url('/images/destination/background-destination-mobile.jpg')]"
         tablet="md:bg-[url('/images/destination/background-destination-tablet.jpg')]"
         desktop="lg:bg-[url('/images/destination/background-destination-desktop.jpg')]"
-        classNames="w-full h-full"
+        className="w-full h-full"
       >
         <div className="mt-[88px] pb-[58px] text-center md:mt-[136px] md:px-[38px] xl:mx-[calc(11.4%-38px)] xl:mt-[212px]">
           <div className="flex items-center justify-center gap-[18px] md:justify-start 2xl:ml-[8vw]">

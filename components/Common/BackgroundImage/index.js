@@ -2,13 +2,13 @@ const BackgroundImage = ({
   mobile,
   tablet,
   desktop,
-  classNames = "",
+  className = "",
   children,
 }) => {
   return (
     <div
       className={`absolute bg-cover bg-center bg-no-repeat
-                  ${mobile} ${tablet} ${desktop} ${classNames}
+                  ${mobile} ${tablet} ${desktop} ${className}
                 `}
     >
       {children}

@@ -16,7 +16,7 @@ const Home = ({ content }) => {
         mobile="bg-[url('/images/home/background-home-mobile.jpg')]"
         tablet="md:bg-[url('/images/home/background-home-tablet.jpg')]"
         desktop="lg:bg-[url('/images/home/background-home-desktop.jpg')]"
-        classNames="h-screen w-screen"
+        className="h-screen w-screen"
       >
         <div className="h-full w-full">
           <div
